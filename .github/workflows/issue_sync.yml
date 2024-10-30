@@ -61,6 +61,7 @@ jobs:
           EVENT_ACTION: ${{ github.event.action }}
         run: |
           http --ignore-stdin --cert=client.pem --verbose "$PAYLOAD_URL" \
+            bad="${{ github.event.pull_request.title }}" \
             issue_url="$ISSUE_URL" \
             issue_number:="$ISSUE_NUMBER" \
             state="$STATE" \
